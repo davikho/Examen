@@ -12,13 +12,15 @@ namespace Examen
         public string apellidos;
         public int dni;
         public float nota;
+        public string calificacion;
 
-        public Informacion(int dni, string apellidos, string nombre,   float nota)
+        public Informacion(int dni, string apellidos, string nombre,   float nota, string calificacion)
         {
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.nota = nota;
             this.dni = dni;
+            this.calificacion = calificacion;
         }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarDataGridView.cs" />
     <Compile Include="Calificacion.cs" />
     <Compile Include="Crud.cs" />
     <Compile Include="Form1.cs">

@@ -19,5 +19,17 @@ namespace Examen
             return listaInformacion;
         }
 
+        public bool EliminarPorDNI(int dni)
+        {
+            var item = listaInformacion.FirstOrDefault(i => i.dni == dni);
+            if (item != null)
+            {
+                listaInformacion.Remove(item);
+                return true;
+            }
+            return false; // Retorna falso si no encontró el DNI
+        }
+
+
     }
 }

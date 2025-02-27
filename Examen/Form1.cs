@@ -20,10 +20,7 @@ namespace Examen
         }
 
         private void dni_TextChanged(object sender, EventArgs e)
-        {
-           
-            
-            
+        { 
 
         }
 
@@ -39,21 +36,21 @@ namespace Examen
             calificacion.Text = cali;
 
 
-            Informacion i = new Informacion(dni1, nombre1, apellido1, nota1);
+            Informacion i = new Informacion(dni1, nombre1, apellido1, nota1, cali);
 
             crud.agregarObjeto(i);
 
-            MessageBox.Show("Registro creado");
-            crud.ObtenerLista();
+          //  MessageBox.Show("Registro creado");
+          //  crud.ObtenerLista();
            
 
-            string mensaje = "";
-            foreach (var info in crud.ObtenerLista())
-            {
-                mensaje += $"Nombre: {info.nombre}\nEdad: {info.dni}\nCédula: {info.apellidos}\nDirección: {info.nombre}\nComentario: {info.nota}\n\n";
-            }
+           // string mensaje = "";
+           // foreach (var info in crud.ObtenerLista())
+           // {
+           //     mensaje += $"Nombre: {info.nombre}\nEdad: {info.dni}\nCédula: {info.apellidos}\nDirección: {info.nombre}\nComentario: {info.nota}\n\n";
+            //}
 
-            MessageBox.Show(mensaje, "Datos guardados");
+            //MessageBox.Show(mensaje, "Datos guardados");
             ActualizarDataGridView();
 
         }
@@ -67,13 +64,13 @@ namespace Examen
             dataGridView1.Rows.Clear();
             foreach (var info in crud.ObtenerLista())
             {
-                dataGridView1.Rows.Add(info.dni, info.apellidos, info.nombre, info.nota);
+                dataGridView1.Rows.Add(info.dni, info.apellidos, info.nombre, info.nota, info.calificacion);
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ActualizarDataGridView();
+           // ActualizarDataGridView();
         }
 
     }
