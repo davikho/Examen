@@ -27,6 +27,12 @@ namespace Examen
         private void registrar_Click(object sender, EventArgs e)
         {
             int dni1 = int.Parse(dni.Text);
+            // Verificar si el DNI ya existe
+            if (crud.ExisteDNI(dni1))
+            {
+                MessageBox.Show("El DNI ya está registrado. Por favor, ingrese un DNI diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;  // Salir del método si el DNI ya está registrado
+            }
             string nombre1 = nombre.Text;
             string apellido1 = apellido.Text;
             float nota1 = float.Parse(nota.Text);
@@ -103,6 +109,35 @@ namespace Examen
             }
         }
 
+        private void buscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int dniBuscar = int.Parse(dni_bus.Text);  // Obtener el DNI de búsqueda
 
+                // Buscar al alumno por el DNI
+                var alumno = crud.ObtenerLista().FirstOrDefault(a => a.dni == dniBuscar);
+
+                if (alumno != null)
+                {
+                    // Si se encuentra el alumno, mostrar la nota y calificación en un MessageBox
+                    string mensaje = $"DNI: {alumno.dni}\n" +
+                                     $"Nombre: {alumno.nombre} {alumno.apellidos}\n" +
+                                     $"Nota: {alumno.nota}\n" +
+                                     $"Calificación: {alumno.calificacion}";
+
+                    MessageBox.Show(mensaje, "Información del Alumno");
+                }
+                else
+                {
+                    // Si el DNI no se encuentra, mostrar un mensaje de error
+                    MessageBox.Show("No se encontró un alumno con el DNI ingresado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Por favor, ingrese un DNI válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

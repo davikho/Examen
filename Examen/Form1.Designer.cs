@@ -42,15 +42,18 @@
             this.registrar = new System.Windows.Forms.Button();
             this.calificacion = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.crudBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.crudBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.crudBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.crudBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.ced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.not = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crudBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.crudBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.crudBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.crudBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.dni_bus = new System.Windows.Forms.TextBox();
+            this.buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource)).BeginInit();
@@ -69,7 +72,7 @@
             // 
             // dni
             // 
-            this.dni.Location = new System.Drawing.Point(246, 66);
+            this.dni.Location = new System.Drawing.Point(69, 63);
             this.dni.Name = "dni";
             this.dni.Size = new System.Drawing.Size(100, 22);
             this.dni.TabIndex = 1;
@@ -77,21 +80,21 @@
             // 
             // apellido
             // 
-            this.apellido.Location = new System.Drawing.Point(371, 66);
+            this.apellido.Location = new System.Drawing.Point(194, 63);
             this.apellido.Name = "apellido";
             this.apellido.Size = new System.Drawing.Size(100, 22);
             this.apellido.TabIndex = 2;
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(514, 66);
+            this.nombre.Location = new System.Drawing.Point(337, 63);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(100, 22);
             this.nombre.TabIndex = 3;
             // 
             // nota
             // 
-            this.nota.Location = new System.Drawing.Point(249, 133);
+            this.nota.Location = new System.Drawing.Point(461, 66);
             this.nota.Name = "nota";
             this.nota.Size = new System.Drawing.Size(100, 22);
             this.nota.TabIndex = 4;
@@ -99,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 47);
+            this.label2.Location = new System.Drawing.Point(101, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 7;
@@ -108,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(391, 47);
+            this.label3.Location = new System.Drawing.Point(214, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 8;
@@ -117,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(535, 47);
+            this.label4.Location = new System.Drawing.Point(358, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 9;
@@ -126,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(278, 111);
+            this.label5.Location = new System.Drawing.Point(490, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 10;
@@ -135,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(511, 111);
+            this.label6.Location = new System.Drawing.Point(703, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 11;
@@ -143,7 +146,7 @@
             // 
             // registrar
             // 
-            this.registrar.Location = new System.Drawing.Point(380, 133);
+            this.registrar.Location = new System.Drawing.Point(592, 66);
             this.registrar.Name = "registrar";
             this.registrar.Size = new System.Drawing.Size(75, 23);
             this.registrar.TabIndex = 12;
@@ -154,7 +157,7 @@
             // calificacion
             // 
             this.calificacion.AutoSize = true;
-            this.calificacion.Location = new System.Drawing.Point(535, 133);
+            this.calificacion.Location = new System.Drawing.Point(727, 66);
             this.calificacion.Name = "calificacion";
             this.calificacion.Size = new System.Drawing.Size(27, 16);
             this.calificacion.TabIndex = 14;
@@ -177,22 +180,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(855, 387);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // crudBindingSource1
-            // 
-            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource
-            // 
-            this.crudBindingSource.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource2
-            // 
-            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource3
-            // 
-            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
             // 
             // ced
             // 
@@ -229,11 +216,56 @@
             this.Ca.Name = "Ca";
             this.Ca.Width = 125;
             // 
+            // crudBindingSource1
+            // 
+            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource
+            // 
+            this.crudBindingSource.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource2
+            // 
+            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource3
+            // 
+            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(66, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 16);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Buscar por DNI";
+            // 
+            // dni_bus
+            // 
+            this.dni_bus.Location = new System.Drawing.Point(69, 141);
+            this.dni_bus.Name = "dni_bus";
+            this.dni_bus.Size = new System.Drawing.Size(100, 22);
+            this.dni_bus.TabIndex = 17;
+            // 
+            // buscar
+            // 
+            this.buscar.Location = new System.Drawing.Point(194, 140);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(104, 23);
+            this.buscar.TabIndex = 18;
+            this.buscar.Text = "Consultar nota";
+            this.buscar.UseVisualStyleBackColor = true;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 608);
+            this.Controls.Add(this.buscar);
+            this.Controls.Add(this.dni_bus);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.calificacion);
             this.Controls.Add(this.registrar);
@@ -283,6 +315,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn not;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ca;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox dni_bus;
+        private System.Windows.Forms.Button buscar;
     }
 }
 

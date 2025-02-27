@@ -29,7 +29,11 @@ namespace Examen
             }
             return false;  
         }
-
+        public bool ExisteDNI(int dni)
+        {
+            // Verifica si el DNI ya está en la lista de información
+            return listaInformacion.Any(i => i.dni == dni);
+        }
 
     }
 }
