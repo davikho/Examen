@@ -50,13 +50,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dni_bus = new System.Windows.Forms.TextBox();
             this.buscar = new System.Windows.Forms.Button();
+            this.nota_nueva = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.notaN = new System.Windows.Forms.Button();
+            this.suspensos = new System.Windows.Forms.Button();
+            this.aprobados = new System.Windows.Forms.Button();
             this.crudBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.nota_nueva = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.notaN = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource)).BeginInit();
@@ -75,7 +78,7 @@
             // 
             // dni
             // 
-            this.dni.Location = new System.Drawing.Point(69, 63);
+            this.dni.Location = new System.Drawing.Point(69, 66);
             this.dni.Name = "dni";
             this.dni.Size = new System.Drawing.Size(100, 22);
             this.dni.TabIndex = 1;
@@ -83,14 +86,14 @@
             // 
             // apellido
             // 
-            this.apellido.Location = new System.Drawing.Point(194, 63);
+            this.apellido.Location = new System.Drawing.Point(194, 66);
             this.apellido.Name = "apellido";
             this.apellido.Size = new System.Drawing.Size(100, 22);
             this.apellido.TabIndex = 2;
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(337, 63);
+            this.nombre.Location = new System.Drawing.Point(337, 66);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(100, 22);
             this.nombre.TabIndex = 3;
@@ -141,7 +144,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(703, 44);
+            this.label6.Location = new System.Drawing.Point(579, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 11;
@@ -149,7 +152,7 @@
             // 
             // registrar
             // 
-            this.registrar.Location = new System.Drawing.Point(592, 66);
+            this.registrar.Location = new System.Drawing.Point(665, 65);
             this.registrar.Name = "registrar";
             this.registrar.Size = new System.Drawing.Size(75, 23);
             this.registrar.TabIndex = 12;
@@ -160,7 +163,7 @@
             // calificacion
             // 
             this.calificacion.AutoSize = true;
-            this.calificacion.Location = new System.Drawing.Point(727, 66);
+            this.calificacion.Location = new System.Drawing.Point(603, 66);
             this.calificacion.Name = "calificacion";
             this.calificacion.Size = new System.Drawing.Size(27, 16);
             this.calificacion.TabIndex = 14;
@@ -180,7 +183,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(999, 387);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -237,29 +240,13 @@
             // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(194, 140);
+            this.buscar.Location = new System.Drawing.Point(164, 141);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(104, 23);
             this.buscar.TabIndex = 18;
             this.buscar.Text = "Consultar nota";
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
-            // 
-            // crudBindingSource1
-            // 
-            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource
-            // 
-            this.crudBindingSource.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource2
-            // 
-            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource3
-            // 
-            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
             // 
             // nota_nueva
             // 
@@ -279,7 +266,7 @@
             // 
             // notaN
             // 
-            this.notaN.Location = new System.Drawing.Point(486, 141);
+            this.notaN.Location = new System.Drawing.Point(451, 139);
             this.notaN.Name = "notaN";
             this.notaN.Size = new System.Drawing.Size(75, 23);
             this.notaN.TabIndex = 21;
@@ -287,11 +274,60 @@
             this.notaN.UseVisualStyleBackColor = true;
             this.notaN.Click += new System.EventHandler(this.notaN_Click);
             // 
+            // suspensos
+            // 
+            this.suspensos.Location = new System.Drawing.Point(798, 107);
+            this.suspensos.Name = "suspensos";
+            this.suspensos.Size = new System.Drawing.Size(164, 23);
+            this.suspensos.TabIndex = 22;
+            this.suspensos.Text = "Mostrar suspensos";
+            this.suspensos.UseVisualStyleBackColor = true;
+            this.suspensos.Click += new System.EventHandler(this.suspensos_Click);
+            // 
+            // aprobados
+            // 
+            this.aprobados.Location = new System.Drawing.Point(798, 130);
+            this.aprobados.Name = "aprobados";
+            this.aprobados.Size = new System.Drawing.Size(164, 23);
+            this.aprobados.TabIndex = 23;
+            this.aprobados.Text = "Mostar Aprobados";
+            this.aprobados.UseVisualStyleBackColor = true;
+            this.aprobados.Click += new System.EventHandler(this.aprobados_Click);
+            // 
+            // crudBindingSource1
+            // 
+            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource
+            // 
+            this.crudBindingSource.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource2
+            // 
+            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource3
+            // 
+            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(798, 84);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Monstrar candidatos a MH";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 608);
+            this.ClientSize = new System.Drawing.Size(974, 608);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.aprobados);
+            this.Controls.Add(this.suspensos);
             this.Controls.Add(this.notaN);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.nota_nueva);
@@ -353,6 +389,9 @@
         private System.Windows.Forms.TextBox nota_nueva;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button notaN;
+        private System.Windows.Forms.Button suspensos;
+        private System.Windows.Forms.Button aprobados;
+        private System.Windows.Forms.Button button1;
     }
 }
 

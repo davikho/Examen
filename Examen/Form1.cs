@@ -173,5 +173,68 @@ namespace Examen
                 MessageBox.Show("Por favor, ingrese un DNI y una nota válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void suspensos_Click(object sender, EventArgs e)
+        {
+            var alumnosSuspensos = crud.ObtenerLista()
+                                .Where(a => a.calificacion == "SS")
+                                .ToList();
+
+            if (alumnosSuspensos.Count > 0)
+            {
+                // Mostrar los alumnos suspensos en el DataGridView
+                dataGridView1.Rows.Clear();  // Limpiar el DataGridView
+                foreach (var alumno in alumnosSuspensos)
+                {
+                    dataGridView1.Rows.Add(alumno.dni, alumno.apellidos, alumno.nombre, alumno.nota, alumno.calificacion);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay alumnos suspensos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void aprobados_Click(object sender, EventArgs e)
+        {
+            var alumnosApro = crud.ObtenerLista()
+                                .Where(a => a.nota >= 7)
+                                .ToList();
+
+            if (alumnosApro.Count > 0)
+            {
+                // Mostrar los alumnos suspensos en el DataGridView
+                dataGridView1.Rows.Clear();  // Limpiar el DataGridView
+                foreach (var alumno in alumnosApro)
+                {
+                    dataGridView1.Rows.Add(alumno.dni, alumno.apellidos, alumno.nombre, alumno.nota, alumno.calificacion);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay alumnos Aprobados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var alumnosMH = crud.ObtenerLista()
+                               .Where(a => a.nota == 10)
+                               .ToList();
+
+            if (alumnosMH.Count > 0)
+            {
+                // Mostrar los alumnos suspensos en el DataGridView
+                dataGridView1.Rows.Clear();  // Limpiar el DataGridView
+                foreach (var alumno in alumnosMH)
+                {
+                    dataGridView1.Rows.Add(alumno.dni, alumno.apellidos, alumno.nombre, alumno.nota, alumno.calificacion);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay alumnos candidatos a MH.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
