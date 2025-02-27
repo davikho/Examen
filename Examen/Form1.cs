@@ -276,5 +276,10 @@ namespace Examen
                 MessageBox.Show("No hay alumnos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
