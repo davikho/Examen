@@ -24,10 +24,10 @@ namespace Examen
             var item = listaInformacion.FirstOrDefault(i => i.dni == dni);
             if (item != null)
             {
-                listaInformacion.Remove(item);
+                listaInformacion.Remove(item);  
                 return true;
             }
-            return false; // Retorna falso si no encontró el DNI
+            return false;  
         }
 
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dni = new System.Windows.Forms.TextBox();
             this.apellido = new System.Windows.Forms.TextBox();
@@ -52,7 +51,6 @@
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.not = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource)).BeginInit();
@@ -171,8 +169,7 @@
             this.ap,
             this.Nom,
             this.not,
-            this.Ca,
-            this.delete});
+            this.Ca});
             this.dataGridView1.Location = new System.Drawing.Point(1, 178);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -232,24 +229,6 @@
             this.Ca.Name = "Ca";
             this.Ca.Width = 125;
             // 
-            // delete
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.NullValue = "Borrar";
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.delete.DefaultCellStyle = dataGridViewCellStyle1;
-            this.delete.HeaderText = "Eliminar";
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.Text = "chao";
-            this.delete.UseColumnTextForButtonValue = true;
-            this.delete.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -304,7 +283,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn not;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ca;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }
 
