@@ -11,8 +11,9 @@ using System.Windows.Forms;
 namespace Examen
 {
     public partial class Form1 : Form
+
     {
-        
+        private Crud crud = new Crud();
         public Form1()
         {
             InitializeComponent();
@@ -40,7 +41,6 @@ namespace Examen
 
             Informacion i = new Informacion(dni1, nombre1, apellido1, nota1);
 
-            Crud crud = new Crud();
             crud.agregarObjeto(i);
 
             MessageBox.Show("Registro creado");
@@ -54,6 +54,7 @@ namespace Examen
             }
 
             MessageBox.Show(mensaje, "Datos guardados");
+            ActualizarDataGridView();
 
         }
 
@@ -61,10 +62,18 @@ namespace Examen
         {
             
         }
+        private void ActualizarDataGridView()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var info in crud.ObtenerLista())
+            {
+                dataGridView1.Rows.Add(info.dni, info.apellidos, info.nombre, info.nota);
+            }
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            ActualizarDataGridView();
         }
 
     }
