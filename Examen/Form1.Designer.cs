@@ -47,13 +47,16 @@
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.not = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dni_bus = new System.Windows.Forms.TextBox();
+            this.buscar = new System.Windows.Forms.Button();
             this.crudBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.dni_bus = new System.Windows.Forms.TextBox();
-            this.buscar = new System.Windows.Forms.Button();
+            this.nota_nueva = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.notaN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource)).BeginInit();
@@ -216,22 +219,6 @@
             this.Ca.Name = "Ca";
             this.Ca.Width = 125;
             // 
-            // crudBindingSource1
-            // 
-            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource
-            // 
-            this.crudBindingSource.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource2
-            // 
-            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
-            // 
-            // crudBindingSource3
-            // 
-            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -258,11 +245,56 @@
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
+            // crudBindingSource1
+            // 
+            this.crudBindingSource1.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource
+            // 
+            this.crudBindingSource.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource2
+            // 
+            this.crudBindingSource2.DataSource = typeof(Examen.Crud);
+            // 
+            // crudBindingSource3
+            // 
+            this.crudBindingSource3.DataSource = typeof(Examen.Crud);
+            // 
+            // nota_nueva
+            // 
+            this.nota_nueva.Location = new System.Drawing.Point(350, 140);
+            this.nota_nueva.Name = "nota_nueva";
+            this.nota_nueva.Size = new System.Drawing.Size(100, 22);
+            this.nota_nueva.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(358, 117);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 16);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Nueva nota";
+            // 
+            // notaN
+            // 
+            this.notaN.Location = new System.Drawing.Point(486, 141);
+            this.notaN.Name = "notaN";
+            this.notaN.Size = new System.Drawing.Size(75, 23);
+            this.notaN.TabIndex = 21;
+            this.notaN.Text = "Actualizar nota";
+            this.notaN.UseVisualStyleBackColor = true;
+            this.notaN.Click += new System.EventHandler(this.notaN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 608);
+            this.Controls.Add(this.notaN);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.nota_nueva);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.dni_bus);
             this.Controls.Add(this.label7);
@@ -318,6 +350,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox dni_bus;
         private System.Windows.Forms.Button buscar;
+        private System.Windows.Forms.TextBox nota_nueva;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button notaN;
     }
 }
 

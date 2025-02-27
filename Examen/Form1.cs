@@ -139,5 +139,39 @@ namespace Examen
                 MessageBox.Show("Por favor, ingrese un DNI válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void notaN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int dniBuscar = int.Parse(dni_bus.Text);  // Obtener el DNI de búsqueda
+                float nuevaNota = float.Parse(nota_nueva.Text);  // Obtener la nueva nota
+
+                // Buscar al alumno por el DNI
+                var alumno = crud.ObtenerLista().FirstOrDefault(a => a.dni == dniBuscar);
+
+                if (alumno != null)
+                {
+                    // Si se encuentra el alumno, actualizar la nota
+                    alumno.nota = nuevaNota;
+
+                    // También actualizamos la calificación si lo deseas
+                    Calificacion cal = new Calificacion();
+                    alumno.calificacion = cal.Equival(nuevaNota);
+
+                    MessageBox.Show("Nota modificada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDataGridView();  // Actualizar el DataGridView para reflejar los cambios
+                }
+                else
+                {
+                    // Si el DNI no se encuentra, mostrar un mensaje de error
+                    MessageBox.Show("No se encontró un alumno con el DNI ingresado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Por favor, ingrese un DNI y una nota válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
