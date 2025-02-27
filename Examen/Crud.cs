@@ -35,5 +35,7 @@ namespace Examen
             return listaInformacion.Any(i => i.dni == dni);
         }
 
+              
+
     }
 }

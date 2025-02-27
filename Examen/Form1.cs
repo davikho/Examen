@@ -26,40 +26,42 @@ namespace Examen
 
         private void registrar_Click(object sender, EventArgs e)
         {
-            int dni1 = int.Parse(dni.Text);
+            // Validar que el DNI contenga solo números
+            int dni1;
+            if (!int.TryParse(dni.Text, out dni1))
+            {
+                MessageBox.Show("El DNI debe contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;  // Salir del método si el DNI no es válido
+            }
+
             // Verificar si el DNI ya existe
             if (crud.ExisteDNI(dni1))
             {
                 MessageBox.Show("El DNI ya está registrado. Por favor, ingrese un DNI diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;  // Salir del método si el DNI ya está registrado
             }
+
             string nombre1 = nombre.Text;
             string apellido1 = apellido.Text;
-            float nota1 = float.Parse(nota.Text);
+            float nota1;
+            if (!float.TryParse(nota.Text, out nota1))
+            {
+                MessageBox.Show("La nota debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;  // Salir si la nota no es válida
+            }
 
             Calificacion cal = new Calificacion();
             string cali = cal.Equival(nota1);
             calificacion.Text = cali;
 
-
             Informacion i = new Informacion(dni1, nombre1, apellido1, nota1, cali);
 
             crud.agregarObjeto(i);
 
-          //  MessageBox.Show("Registro creado");
-          //  crud.ObtenerLista();
-           
-
-           // string mensaje = "";
-           // foreach (var info in crud.ObtenerLista())
-           // {
-           //     mensaje += $"Nombre: {info.nombre}\nEdad: {info.dni}\nCédula: {info.apellidos}\nDirección: {info.nombre}\nComentario: {info.nota}\n\n";
-            //}
-
-            //MessageBox.Show(mensaje, "Datos guardados");
+            // Actualizar el DataGridView
             ActualizarDataGridView();
-
         }
+
 
         private void ver_Click(object sender, EventArgs e)
         {
@@ -88,24 +90,38 @@ namespace Examen
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar si el clic fue en la columna "Eliminar"
-            if (e.ColumnIndex == dataGridView1.Columns["Eliminar"].Index)
+            
+            // Verificar que la celda no esté vacía
+            if (dataGridView1.Rows[e.RowIndex].Cells["ced"].Value != null)
             {
-                // Obtener el DNI de la fila seleccionada
-                int dniEliminar = (int)dataGridView1.Rows[e.RowIndex].Cells["ced"].Value;
-
-                // Llamar al método de eliminación
-                bool eliminado = crud.EliminarPorDNI(dniEliminar);
-
-                if (eliminado)
+                // Intentar convertir el valor de la celda a int
+                int dniEliminar;
+                if (int.TryParse(dataGridView1.Rows[e.RowIndex].Cells["ced"].Value.ToString(), out dniEliminar))
                 {
-                    MessageBox.Show("Registro eliminado");
-                    ActualizarDataGridView();  // Actualizar el DataGridView después de eliminar
+                    
+                    // Llamar al método de eliminación
+                    bool eliminado = crud.EliminarPorDNI(dniEliminar);
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Registro eliminado");
+                        ActualizarDataGridView();  // Actualizar el DataGridView después de eliminar
+                    }
+                    else
+                    {
+                        MessageBox.Show("DNI no encontrado");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("DNI no encontrado");
+                    // Si la conversión falla (no es un entero válido)
+                    MessageBox.Show("El valor en la celda no es un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            else
+            {
+                // Si la celda está vacía
+                MessageBox.Show("La celda de DNI está vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -234,6 +250,30 @@ namespace Examen
             else
             {
                 MessageBox.Show("No hay alumnos candidatos a MH.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void todos_Click(object sender, EventArgs e)
+        {
+            var alumnosTodos = crud.ObtenerLista();
+            
+            if (alumnosTodos.Count > 0)
+            {
+                // Mostrar los alumnos suspensos en el DataGridView
+                dataGridView1.Rows.Clear();  // Limpiar el DataGridView
+                foreach (var alumno in alumnosTodos)
+                {
+                    dataGridView1.Rows.Add(alumno.dni, alumno.apellidos, alumno.nombre, alumno.nota, alumno.calificacion);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay alumnos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

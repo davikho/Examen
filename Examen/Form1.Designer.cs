@@ -55,11 +55,13 @@
             this.notaN = new System.Windows.Forms.Button();
             this.suspensos = new System.Windows.Forms.Button();
             this.aprobados = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.crudBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.crudBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.todos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudBindingSource)).BeginInit();
@@ -183,7 +185,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(999, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(1167, 387);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -276,23 +278,33 @@
             // 
             // suspensos
             // 
-            this.suspensos.Location = new System.Drawing.Point(798, 107);
+            this.suspensos.Location = new System.Drawing.Point(795, 89);
             this.suspensos.Name = "suspensos";
             this.suspensos.Size = new System.Drawing.Size(164, 23);
             this.suspensos.TabIndex = 22;
-            this.suspensos.Text = "Mostrar suspensos";
+            this.suspensos.Text = "Suspensos";
             this.suspensos.UseVisualStyleBackColor = true;
             this.suspensos.Click += new System.EventHandler(this.suspensos_Click);
             // 
             // aprobados
             // 
-            this.aprobados.Location = new System.Drawing.Point(798, 130);
+            this.aprobados.Location = new System.Drawing.Point(795, 112);
             this.aprobados.Name = "aprobados";
             this.aprobados.Size = new System.Drawing.Size(164, 23);
             this.aprobados.TabIndex = 23;
-            this.aprobados.Text = "Mostar Aprobados";
+            this.aprobados.Text = "Aprobados";
             this.aprobados.UseVisualStyleBackColor = true;
             this.aprobados.Click += new System.EventHandler(this.aprobados_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(795, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Candidatos a MH";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // crudBindingSource1
             // 
@@ -310,21 +322,33 @@
             // 
             this.crudBindingSource3.DataSource = typeof(Examen.Crud);
             // 
-            // button1
+            // label9
             // 
-            this.button1.Location = new System.Drawing.Point(798, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Monstrar candidatos a MH";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(824, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 16);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Mostrar grupos";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // todos
+            // 
+            this.todos.Location = new System.Drawing.Point(795, 139);
+            this.todos.Name = "todos";
+            this.todos.Size = new System.Drawing.Size(164, 23);
+            this.todos.TabIndex = 26;
+            this.todos.Text = "Todos";
+            this.todos.UseVisualStyleBackColor = true;
+            this.todos.Click += new System.EventHandler(this.todos_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 608);
+            this.ClientSize = new System.Drawing.Size(1073, 608);
+            this.Controls.Add(this.todos);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.aprobados);
             this.Controls.Add(this.suspensos);
@@ -392,6 +416,8 @@
         private System.Windows.Forms.Button suspensos;
         private System.Windows.Forms.Button aprobados;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button todos;
     }
 }
 
